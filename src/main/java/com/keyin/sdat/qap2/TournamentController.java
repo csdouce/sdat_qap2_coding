@@ -27,11 +27,10 @@ public class TournamentController {
     }
 
     @PostMapping("/new-tournament")
-    public Tournament createTournament(@RequestBody Tournament tournament){
+    public void createTournament(@RequestBody Tournament tournament){
 
         repo.save(tournament);
 
-        return tournament;
     }
 
     @PutMapping("/update-tournament/{id}")
@@ -52,9 +51,8 @@ public class TournamentController {
     }
 
     @DeleteMapping("/delete-tournament/{id}")
-    public long deleteTournament(@PathVariable long id){
+    public void deleteTournament(@PathVariable long id){
         repo.deleteById(id);
-        return id;
     }
 
 }
